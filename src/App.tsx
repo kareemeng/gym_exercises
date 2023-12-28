@@ -6,7 +6,6 @@ import ExerciseDetails from "./pages/ExerciseDetails";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import "./App.css";
-
 const theme = createTheme({
   palette: {
     error: {

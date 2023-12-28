@@ -1,10 +1,24 @@
 // import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // this will make the data available till the session ends
+      staleTime: Infinity,
+      // 5 minutes
+      // staleTime: 1000 * 60 * 5,
+    },
+  },
+});
 import App from "./App.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
   </BrowserRouter>,
 );
